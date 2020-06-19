@@ -4,18 +4,19 @@ dotenv.config();
 
 module.exports = {
   development: {
-    client: 'sqlite3',
+    client: process.env.DB_CONNECTION,
     connection: {
-      filename: './dev.sqlite3',
+      host: process.env.DB_HOST,
+      port: process.env.DB_PORT,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_DATABASE,
     },
-    useNullAsDefault: true,
   },
 
   test: {
     client: 'sqlite3',
-    connection: {
-      filename: './test.sqlite3',
-    },
+    connection: ':memory:',
     useNullAsDefault: true,
   },
 
@@ -24,7 +25,7 @@ module.exports = {
     connection: {
       host: process.env.DB_HOST,
       port: process.env.DB_PORT,
-      user: process.env.DB_USERNAME,
+      user: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
     },
@@ -35,7 +36,7 @@ module.exports = {
     connection: {
       host: process.env.DB_HOST,
       port: process.env.DB_PORT,
-      user: process.env.DB_USERNAME,
+      user: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
     },

@@ -1,6 +1,6 @@
 const { Router } = require('express');
 
-const notesRoute = require('./notes');
+const notesRoutes = require('./notes');
 
 const router = Router();
 
@@ -11,6 +11,6 @@ router.get('/', (req, res) => {
   });
 });
 
-router.use('/notes', notesRoute);
+router.use('/notes', notesRoutes);
 
 module.exports = router;
