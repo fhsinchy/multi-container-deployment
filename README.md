@@ -1,6 +1,6 @@
 # Deploy a Multi-container project on AWS
 
-This is a simple not taking application consisting of two separate ends:
+This is a simple note taking application consisting of two separate ends:
 
 - Vue.js Client (resides inside `client` directory)
 - Express Server (resides inside `api` directory)
@@ -13,9 +13,9 @@ This project will be deployed on [AWS Elastic Beanstalk](https://aws.amazon.com/
 
 - Development :heavy_check_mark:
 - Containerization :heavy_check_mark:
-- CI/CD :heavy_multiplication_mark:
-- Documentation :heavy_multiplication_mark:
-- Comprehensive Tutorial :heavy_multiplication_mark:
+- CI/CD :heavy_multiplication_x:
+- Documentation :heavy_multiplication_x:
+- Comprehensive Tutorial :heavy_multiplication_x:
 
 ## System Requirements
 
@@ -24,8 +24,8 @@ This project will be deployed on [AWS Elastic Beanstalk](https://aws.amazon.com/
 
 ## Libraries Used
 
-- [vue](https://deno.land/x/oak)
-- [express](https://deno.land/x/mysql)
+- [vue](https://vuejs.org/)
+- [express](https://expressjs.com/)
 
 ## Instructions
 
