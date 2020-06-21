@@ -1,5 +1,5 @@
 <template>
-  <b-modal @hide="reset" id="note-creation-modal" hide-footer :title=title>
+  <b-modal @hide="reset" id="note-creation-modal" hide-footer title="Create Note">
     <b-form @submit="submit">
       <b-form-group
         id="title-input-group"
@@ -46,9 +46,6 @@ export default {
         content: "",
       },
     }
-  },
-  props: {
-    title: String,
   },
   methods: {
     async submit(evt) {
