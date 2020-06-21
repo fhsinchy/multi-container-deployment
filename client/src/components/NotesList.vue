@@ -4,7 +4,7 @@
       <b-list-group-item v-for="note in notes" v-on:click="show(note)" :key="note.id">{{ note.title }}</b-list-group-item>
     </b-list-group>
     <b-alert v-else show>There are no notes in the database.</b-alert>
-    <show-note :note="current" />
+    <note :note="current" />
   </div>
 </template>
 
@@ -12,12 +12,12 @@
 import axios from "../libs/axios"
 import EventBus from "../event-bus";
 
-import ShowNote from "./ShowNote.vue";
+import Note from "./Note.vue";
 
 export default {
   name: "NotesList",
   components: {
-    ShowNote,
+    Note,
   },
   data() {
     return {

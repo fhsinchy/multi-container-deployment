@@ -1,6 +1,6 @@
 <template>
     <div>
-        <b-navbar class="mb-5" toggleable="lg" type="dark" variant="info">
+        <b-navbar class="mb-5" toggleable="lg" type="dark" variant="dark">
             <b-navbar-brand href="#">{{ brand }}</b-navbar-brand>
 
             <!-- Right aligned nav items -->
