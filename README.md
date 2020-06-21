@@ -35,10 +35,4 @@ Clone this repository anywhere you want. Open up terminal and use following comm
 docker-compose up --build
 ```
 
-Open up a shell inside the running API service anc execute following command -
-
-```bash
-npm run db:migrate
-```
-
-Now the application will be available on `http://localhost:80` address on your local machine.
+Now the application will be available on `http://localhost` address on your local machine.
