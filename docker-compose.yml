@@ -7,16 +7,13 @@ services:
             POSTGRES_PASSWORD: 63eaQB9wtLqmNBpg
             POSTGRES_DB: noteapplication
     nginx:
-        build:
-            context: ./nginx
-            dockerfile: dev-Dockerfile
+        build: ./nginx
         ports: 
             - 80:80
         restart: always
     api:
-        build:
-            context: ./api
-            dockerfile: dev-Dockerfile
+        build: ./api
+        command: [ "npm", "run", "dev" ]
         volumes: 
             - /usr/app/node_modules
             - ./api:/usr/app
