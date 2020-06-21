@@ -38,6 +38,44 @@ describe('POST /notes', () => {
   });
 });
 
+describe('GET /notes/1', () => {
+  test('Returns a single note from the database', async () => {
+    const note = {
+      id: 1,
+      title: 'Lorem ipsum',
+      content:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    };
+    await request(app).post('/notes').send(note);
+
+    const response = await request(app).get('/notes/1');
+
+    expect(response.status).toBe(200);
+  });
+});
+
+describe('PUT /notes/1', () => {
+  test('Updates a single note in the database', async () => {
+    const note = {
+      id: 1,
+      title: 'Lorem ipsum',
+      content:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    };
+    const updatedNote = {
+      title: 'Lorem ipsum [UPDATED]',
+      content:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    };
+
+    await request(app).post('/notes').send(note);
+
+    const response = await request(app).put('/notes/1').send(updatedNote);
+
+    expect(response.status).toBe(200);
+  });
+});
+
 describe('DELETE /notes/1', () => {
   test('Deletes a single note from the database', async () => {
     const note = {

@@ -36,6 +36,49 @@ async function store(req, res, next) {
   }
 }
 
+async function show(req, res, next) {
+  try {
+    const note = await Note.query().findById(req.params.id);
+
+    if (!note) {
+      throw new Bounce(404, 'Not Found!');
+    }
+
+    res.status(200).json({
+      status: 'success',
+      message: 'Single Note.',
+      data: {
+        note,
+      },
+    });
+  } catch (err) {
+    next(err);
+  }
+}
+
+async function update(req, res, next) {
+  try {
+    const note = await Note.query().findById(req.params.id).patch({
+      title: req.body.title,
+      content: req.body.content,
+    });
+
+    if (!note) {
+      throw new Bounce(404, 'Not Found!');
+    }
+
+    res.status(200).json({
+      status: 'success',
+      message: 'Note Updated.',
+      data: {
+        note,
+      },
+    });
+  } catch (err) {
+    next(err);
+  }
+}
+
 async function destroy(req, res, next) {
   try {
     const note = await Note.query().deleteById(req.params.id);
@@ -54,4 +97,4 @@ async function destroy(req, res, next) {
   }
 }
 
-module.exports = { index, store, destroy };
+module.exports = { index, store, show, update, destroy };
