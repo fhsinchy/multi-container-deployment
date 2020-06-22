@@ -12,6 +12,8 @@ This project will be deployed on [AWS Elastic Beanstalk](https://aws.amazon.com/
 ## Development Task List
 
 - Development :heavy_check_mark:
+- Client Tests :heavy_check_mark:
+- API Tests :heavy_check_mark:
 - Containerization :heavy_check_mark:
 - CI/CD :heavy_multiplication_x:
 - Documentation :heavy_multiplication_x:
