@@ -1,4 +1,4 @@
-# Deploy a Multi-container project on AWS
+# Deploy a Multi-Container Project on AWS
 
 This is a simple note taking application consisting of two separate ends:
 
