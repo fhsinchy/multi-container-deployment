@@ -5,7 +5,7 @@ This is a simple note taking application consisting of two separate ends:
 - Vue.js Client (resides inside `client` directory)
 - Express Server (resides inside `api` directory)
 
-Routing of the requests has been done using [Nginx](https://nginx.com/). I have used [Docker](https://docker.com/) for containerization and [Travis CI](https://travis-ci.com/) for CI/CD.
+Routing of the requests has been done using [Nginx](https://nginx.com/) as a reverse proxy. I have used [Docker](https://docker.com/) for containerization and [Travis CI](https://travis-ci.com/) for CI/CD.
 
 This project will be deployed on [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/) and a comprehensive tutorial will be published on [freeCodeCamp](https://freecodecamp.org/news) very soon.
 
