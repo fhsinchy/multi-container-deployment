@@ -4,7 +4,6 @@
         <router-link to="#" class="logo">Notes</router-link>
         <router-link :to="{ name: 'Home' }" class="button">Home</router-link>
         <router-link :to="{ name: 'Create' }" class="button">Create</router-link>
-        <router-link :to="{ name: 'About' }" class="button">About</router-link>
     </header>
     <router-view />
   </div>

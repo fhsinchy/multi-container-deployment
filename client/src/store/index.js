@@ -13,6 +13,9 @@ export default new Vuex.Store({
     insertNote(state, payload) {
       state.notes.push(payload);
     },
+    deleteNote(state, payload) {
+      state.notes.splice(state.notes.indexOf(payload), 1);
+    },
   },
   actions: {
     async fetchNotes(context) {
@@ -31,6 +34,17 @@ export default new Vuex.Store({
         context.commit('insertNote', response.data.data.note);
 
         router.push('/');
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async deleteNote(context, payload) {
+      try {
+        await axios.delete(`/notes/${payload.id}`);
+
+        context.commit('deleteNote', payload);
+
+        // router.push('/');
       } catch (error) {
         console.log(error);
       }
