@@ -24,6 +24,7 @@ export default new Vuex.Store({
 
         response.data.data.notes.map((note) => context.commit('insertNote', note));
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.log(error);
       }
     },
@@ -35,6 +36,7 @@ export default new Vuex.Store({
 
         router.push('/');
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.log(error);
       }
     },
@@ -44,8 +46,8 @@ export default new Vuex.Store({
 
         context.commit('deleteNote', payload);
 
-        // router.push('/');
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.log(error);
       }
     },
