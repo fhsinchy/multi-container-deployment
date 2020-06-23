@@ -14,8 +14,9 @@ services:
             - 80:80
         restart: always
     api:
-        build: ./api
-        command: [ "npm", "run", "dev" ]
+        build: 
+            context: ./api
+            dockerfile: dev-Dockerfile
         volumes: 
             - /usr/app/node_modules
             - ./api:/usr/app
