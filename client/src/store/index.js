@@ -45,7 +45,6 @@ export default new Vuex.Store({
         await axios.delete(`/notes/${payload.id}`);
 
         context.commit('deleteNote', payload);
-
       } catch (error) {
         // eslint-disable-next-line no-console
         console.log(error);
