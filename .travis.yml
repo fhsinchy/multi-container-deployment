@@ -16,7 +16,7 @@ after_success:
     - docker build -t fhsinchy/notes-client ./client
     - docker build -t fhsinchy/notes-nginx ./nginx
 
-    - docker login -u fhsinchy --password-stdin "$DOCKER_PASSWORD"
+    - docker login -u fhsinchy --password "$DOCKER_PASSWORD"
     
     - docker push fhsinchy/notes-api
     - docker push fhsinchy/notes-client
