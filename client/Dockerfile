@@ -1,4 +1,4 @@
-FROM node:lts as builder
+FROM node:alpine as builder
 
 WORKDIR /usr/app
 COPY ./package.json .
