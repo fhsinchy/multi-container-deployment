@@ -9,7 +9,9 @@ services:
             POSTGRES_PASSWORD: 63eaQB9wtLqmNBpg
             POSTGRES_DB: notesdb
     nginx:
-        build: ./nginx
+        build:
+            context: ./nginx
+            dockerfile: dev-Dockerfile
         ports: 
             - 80:80
         restart: always
