@@ -4,9 +4,20 @@ services:
     - docker
     
 before_install:
-    - docker build -t fhsinchy/test-api -f ./api/dev-Dockerfile ./api
-    - docker build -t fhsinchy/test-client -f ./client/dev-Dockerfile ./client
+    - docker build -t fhsinchy/test-notes-api -f ./api/dev-Dockerfile ./api
+    - docker build -t fhsinchy/test-notes-client -f ./client/dev-Dockerfile ./client
 
 script:
-    - docker run fhsinchy/test-api npm run test
-    - docker run fhsinchy/test-client npm run test:unit
+    - docker run fhsinchy/test-notes-api npm run test
+    - docker run fhsinchy/test-notes-client npm run test:unit
+
+after_success:
+    - docker build -t fhsinchy/notes-api ./api
+    - docker build -t fhsinchy/notes-client ./client
+    - docker build -t fhsinchy/notes-nginx ./nginx
+
+    - docker login -u fhsinchy --password-stdin "$DOCKER_PASSWORD"
+    
+    - docker push fhsinchy/notes-api
+    - docker push fhsinchy/notes-client
+    - docker push fhsinchy/notes-nginx
