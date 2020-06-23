@@ -7,8 +7,6 @@ This is a simple note taking application consisting of two separate ends:
 
 Routing of the requests has been done using [Nginx](https://nginx.com/) as a reverse proxy. I have used [Docker](https://docker.com/) for containerization and [Travis CI](https://travis-ci.com/) for CI/CD.
 
-This project will be deployed on [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/) and a comprehensive tutorial will be published on [freeCodeCamp](https://freecodecamp.org/news) very soon.
-
 ## Development Task List
 
 - Development :heavy_check_mark:
@@ -17,7 +15,6 @@ This project will be deployed on [AWS Elastic Beanstalk](https://aws.amazon.com/
 - Containerization :heavy_check_mark:
 - CI/CD :heavy_multiplication_x:
 - Documentation :heavy_multiplication_x:
-- Comprehensive Tutorial :heavy_multiplication_x:
 
 ## System Requirements
 
