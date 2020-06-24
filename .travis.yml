@@ -11,25 +11,25 @@ script:
     - docker run fhsinchy/test-notes-api npm run test
     - docker run fhsinchy/test-notes-client npm run test:unit
 
-after_success:
-    - docker build -t fhsinchy/notes-api ./api
-    - docker build -t fhsinchy/notes-client ./client
-    - docker build -t fhsinchy/notes-nginx ./nginx
+# after_success:
+#     - docker build -t fhsinchy/notes-api ./api
+#     - docker build -t fhsinchy/notes-client ./client
+#     - docker build -t fhsinchy/notes-nginx ./nginx
 
-    - echo "$DOCKER_PASSWORD" | docker login -u fhsinchy --password-stdin
+#     - echo "$DOCKER_PASSWORD" | docker login -u fhsinchy --password-stdin
     
-    - docker push fhsinchy/notes-api
-    - docker push fhsinchy/notes-client
-    - docker push fhsinchy/notes-nginx
+#     - docker push fhsinchy/notes-api
+#     - docker push fhsinchy/notes-client
+#     - docker push fhsinchy/notes-nginx
 
-deploy:
-    provider: elasticbeanstalk
-    region: "us-east-2"
-    app: "notes"
-    env: "Notes-env"
-    bucket_name: "elasticbeanstalk-us-east-2-890476563482"
-    bucket_path: "notes"
-    access_key_id: $AWS_ACCESS_KEY_ID
-    secret_access_key: "$AWS_SECRET_ACCESS_KEY"
-    on:
-        branch: master
+# deploy:
+#     provider: elasticbeanstalk
+#     region: "us-east-2"
+#     app: "notes"
+#     env: "Notes-env"
+#     bucket_name: "elasticbeanstalk-us-east-2-890476563482"
+#     bucket_path: "notes"
+#     access_key_id: $AWS_ACCESS_KEY_ID
+#     secret_access_key: "$AWS_SECRET_ACCESS_KEY"
+#     on:
+#         branch: master
