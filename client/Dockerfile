@@ -6,7 +6,7 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-FROM nginx
+FROM nginx:stable
 
 EXPOSE 8080
 
