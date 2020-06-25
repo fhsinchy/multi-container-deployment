@@ -13,8 +13,9 @@ Routing of the requests has been done using [Nginx](https://nginx.com/) as a rev
 - Client Tests :heavy_check_mark:
 - API Tests :heavy_check_mark:
 - Containerization :heavy_check_mark:
-- CI/CD :heavy_multiplication_x:
-- Documentation :heavy_multiplication_x:
+- CI/CD :heavy_check_mark:
+- Deployment :heavy_check_mark:
+- Tutorial :heavy_multiplication_x:
 
 ## System Requirements
 
