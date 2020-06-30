@@ -15,7 +15,7 @@ Routing of the requests has been done using [Nginx](https://nginx.com/) as a rev
 - [x] Containerization
 - [x] CI/CD
 - [x] Deployment
-- [] Tutorial
+- [ ] Tutorial
 
 ## System Requirements
 
