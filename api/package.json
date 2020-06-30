@@ -11,21 +11,23 @@
     "lint": "eslint --ext .js --cache --fix --ignore-path .gitignore .",
     "test": "cross-env NODE_ENV=test jest"
   },
+  "keywords": [],
   "author": "Farhan Hasin Chowdhury <mail@farhan.info>",
   "license": "MIT",
   "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "celebrate": "^12.1.1",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "helmet": "^3.22.0",
     "knex": "^0.21.1",
     "morgan": "^1.10.0",
     "objection": "^2.2.0",
-    "pg": "^8.2.1",
-    "sqlite3": "^4.2.0"
+    "pg": "^8.2.1"
   },
   "devDependencies": {
-    "cross-env": "^7.0.2",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-config-prettier": "^6.11.0",
@@ -36,6 +38,7 @@
     "lint-staged": "^10.1.7",
     "nodemon": "^2.0.3",
     "prettier": "^2.0.5",
+    "sqlite3": "^4.2.0",
     "supertest": "^4.0.2"
   },
   "husky": {

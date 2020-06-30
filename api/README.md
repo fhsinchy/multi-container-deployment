@@ -1,12 +1,8 @@
 # api
 
-This API uses [fhsinchy/express-boilerplate](https://github.com/fhsinchy/express-boilerplate) template.
+This API uses [fhsinchy/node-rocket](https://github.com/fhsinchy/node-rocket) project template.
 
 ## Project setup
-
-```bash
-npm install
-```
 
 ```bash
 npm run dev # starts development server

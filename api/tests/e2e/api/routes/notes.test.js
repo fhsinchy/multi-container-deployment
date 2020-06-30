@@ -1,19 +1,22 @@
 /* eslint-disable no-undef */
 
 const request = require('supertest');
-const knex = require('../db/knex');
-const app = require('../app');
+
+const app = require('../../../../app');
+const { Knex } = require('../../../../services');
+
+require('dotenv').config();
 
 beforeEach(() => {
-  return knex.migrate.latest();
+  return Knex.migrate.latest();
 });
 
 afterEach(() => {
-  return knex.migrate.rollback();
+  return Knex.migrate.rollback();
 });
 
 afterAll(() => {
-  return knex.destroy();
+  return Knex.destroy();
 });
 
 describe('GET /notes', () => {
@@ -41,7 +44,6 @@ describe('POST /notes', () => {
 describe('GET /notes/1', () => {
   test('Returns a single note from the database', async () => {
     const note = {
-      id: 1,
       title: 'Lorem ipsum',
       content:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
@@ -57,7 +59,6 @@ describe('GET /notes/1', () => {
 describe('PUT /notes/1', () => {
   test('Updates a single note in the database', async () => {
     const note = {
-      id: 1,
       title: 'Lorem ipsum',
       content:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
@@ -79,7 +80,6 @@ describe('PUT /notes/1', () => {
 describe('DELETE /notes/1', () => {
   test('Deletes a single note from the database', async () => {
     const note = {
-      id: 1,
       title: 'Lorem ipsum',
       content:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',

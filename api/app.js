@@ -7,16 +7,16 @@ const logger = require('morgan');
 const helmet = require('helmet');
 const express = require('express');
 const { Model } = require('objection');
+const { isCelebrate } = require('celebrate');
 
-const knex = require('./db/knex');
-const routes = require('./routes');
-const { bouncer } = require('./middleware');
+const routes = require('./api');
+const { Knex } = require('./services');
 
 /**
  * ORM initialization.
  */
 
-Model.knex(knex);
+Model.knex(Knex);
 
 /**
  * app instance initialization.
@@ -40,9 +40,34 @@ app.use(express.json());
 app.use('/', routes);
 
 /**
+ * 404 handler.
+ */
+
+app.use((req, res, next) => {
+  const err = new Error('Not Found!');
+  err.status = 404;
+  next(err);
+});
+
+/**
  * Error handler registration.
  */
 
-app.use(bouncer);
+// eslint-disable-next-line no-unused-vars
+app.use((err, req, res, next) => {
+  const status = isCelebrate(err) ? 400 : err.status || 500;
+  const message =
+    process.env.NODE_ENV === 'production' && err.status === 500
+      ? 'Something Went Wrong!'
+      : err.message;
+
+  // eslint-disable-next-line no-console
+  if (status === 500) console.log(err.stack);
+
+  res.status(status).json({
+    status: status >= 500 ? 'error' : 'fail',
+    message,
+  });
+});
 
 module.exports = app;
