@@ -11,28 +11,23 @@ services:
     nginx:
         build:
             context: ./nginx
-            dockerfile: dev-Dockerfile
+            dockerfile: Dockerfile.dev
         ports: 
             - 80:80
         restart: always
     api:
         build: 
             context: ./api
-            dockerfile: dev-Dockerfile
+            dockerfile: Dockerfile.dev
         volumes: 
             - /usr/app/node_modules
             - ./api:/usr/app
         environment: 
-            - DB_CONNECTION=pg
-            - DB_HOST=db
-            - DB_PORT=5432
-            - DB_USER=postgres
-            - DB_DATABASE=notesdb
-            - DB_PASSWORD=63eaQB9wtLqmNBpg
+            env_file: ./api/.env
     client:
         build:
             context: ./client
-            dockerfile: dev-Dockerfile
+            dockerfile: Dockerfile.dev
         volumes: 
             - /usr/app/node_modules
             - ./client:/usr/app
