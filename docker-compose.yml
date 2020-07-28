@@ -36,5 +36,3 @@ services:
         volumes: 
             - /usr/app/node_modules
             - ./client:/usr/app
-        environment: 
-            - VUE_APP_API_URL=/api
