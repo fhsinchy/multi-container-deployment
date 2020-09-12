@@ -3,21 +3,21 @@
     "containerDefinitions": [
         {
             "name": "client",
-            "image": "fhsinchy/notes-client",
+            "image": "fhsinchy/notes-client:ci-cd",
             "hostname": "client",
             "essential": false,
             "memory": 128
         },
         {
             "name": "api",
-            "image": "fhsinchy/notes-api",
+            "image": "fhsinchy/notes-api:ci-cd",
             "hostname": "api",
             "essential": false,
             "memory": 128
         },
         {
             "name": "nginx",
-            "image": "fhsinchy/notes-nginx",
+            "image": "fhsinchy/notes-nginx:ci-cd",
             "hostname": "nginx",
             "essential": true,
             "memory": 128,
