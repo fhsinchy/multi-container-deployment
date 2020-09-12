@@ -12,15 +12,15 @@ script:
     - docker run fhsinchy/test-notes-client npm run test:unit
 
 # after_success:
-#     - docker build -t fhsinchy/notes-api ./api
-#     - docker build -t fhsinchy/notes-client ./client
-#     - docker build -t fhsinchy/notes-nginx ./nginx
+#     - docker build -t fhsinchy/notes-api:ci-cd ./api
+#     - docker build -t fhsinchy/notes-client:ci-cd ./client
+#     - docker build -t fhsinchy/notes-nginx:ci-cd ./nginx
 
 #     - echo "$DOCKER_PASSWORD" | docker login -u fhsinchy --password-stdin
     
-#     - docker push fhsinchy/notes-api
-#     - docker push fhsinchy/notes-client
-#     - docker push fhsinchy/notes-nginx
+#     - docker push fhsinchy/notes-api:ci-cd
+#     - docker push fhsinchy/notes-client:ci-cd
+#     - docker push fhsinchy/notes-nginx:ci-cd
 
 # deploy:
 #     provider: elasticbeanstalk
