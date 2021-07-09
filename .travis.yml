@@ -1,26 +1,26 @@
-# sudo: required
+sudo: required
 
-# services:
-#     - docker
+services:
+    - docker
     
-# before_install:
-#     - docker build -t fhsinchy/test-notes-api -f ./api/Dockerfile.dev ./api
-#     - docker build -t fhsinchy/test-notes-client -f ./client/Dockerfile.dev ./client
+before_install:
+    - docker build -t fhsinchy/test-notes-api -f ./api/Dockerfile.dev ./api
+    - docker build -t fhsinchy/test-notes-client -f ./client/Dockerfile.dev ./client
 
-# script:
-#     - docker run fhsinchy/test-notes-api npm run test
-#     - docker run fhsinchy/test-notes-client npm run test:unit
+script:
+    - docker run fhsinchy/test-notes-api npm run test
+    - docker run fhsinchy/test-notes-client npm run test:unit
 
-# after_success:
-#     - docker build -t fhsinchy/notes-api:ci-cd ./api
-#     - docker build -t fhsinchy/notes-client:ci-cd ./client
-#     - docker build -t fhsinchy/notes-nginx:ci-cd ./nginx
+after_success:
+    - docker build -t fhsinchy/notes-api:ci-cd ./api
+    - docker build -t fhsinchy/notes-client:ci-cd ./client
+    - docker build -t fhsinchy/notes-nginx:ci-cd ./nginx
 
-#     - echo "$DOCKER_PASSWORD" | docker login -u fhsinchy --password-stdin
+    - echo "$DOCKER_PASSWORD" | docker login -u fhsinchy --password-stdin
     
-#     - docker push fhsinchy/notes-api:ci-cd
-#     - docker push fhsinchy/notes-client:ci-cd
-#     - docker push fhsinchy/notes-nginx:ci-cd
+    - docker push fhsinchy/notes-api:ci-cd
+    - docker push fhsinchy/notes-client:ci-cd
+    - docker push fhsinchy/notes-nginx:ci-cd
 
 # deploy:
 #     provider: elasticbeanstalk
